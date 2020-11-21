@@ -19,7 +19,7 @@ st.image(img, caption='“Smoking cigars is like falling in love. First, you are
 
 #header
 st.header('Input your favorite cigar.')
-st.subheader('You can search any cigars listed here, \n https://www.cigarsinternational.com/shop/big-list-of-cigars-brands/1803000/ ')
+#st.subheader('You can search any cigars listed here, \n https://www.cigarsinternational.com/shop/big-list-of-cigars-brands/1803000/ ')
 
 #ask user for input
 cigar_id = st.text_input('Enter cigar name.')
