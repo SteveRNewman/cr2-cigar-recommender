@@ -4,6 +4,10 @@ from PIL import Image
 import model_app
 import pandas as pd
 
+
+options = list(model_app.df_final_v_3.index)
+
+
 st.title("Cigar Recommender")
 
 img = Image.open('figures/cigar.jpeg')
@@ -11,7 +15,7 @@ st.image(img, caption='“Smoking cigars is like falling in love. First, you are
 
 st.header('Input your favorite cigar.')
 #st.subheader('You can search any cigars listed here, \n https://www.cigarsinternational.com/shop/big-list-of-cigars-brands/1803000/ ')
-cigar_id = st.text_input('Enter cigar name.', '')
+cigar_id = st.selectbox('Start typing cigar name', options)
 
 st.info('Or search by profile notes')
 profile = st.text_input('Enter profile keyword:', '')
