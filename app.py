@@ -34,7 +34,7 @@ if test:
 				st.text('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
 			else:
 				st.text('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
-				html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4))
+				html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[indices.flatten()[i]].replace("'",""),round(distances.flatten()[i],4))
 				st.markdown(html_string, unsafe_allow_html=True)
 		st.success('Finished')
 
