@@ -4,9 +4,9 @@ from PIL import Image
 import model_app
 import pandas as pd
 
-
+df_desc2 = pd.read_pickle('df_desc2.pkl')
 options = list(model_app.df_final_v_3.index)
-
+options2 = list(df_desc2.columns[:-1])
 
 st.title("Cigar Recommender")
 
@@ -18,7 +18,7 @@ st.header('Input your favorite cigar.')
 cigar_id = st.selectbox('Start typing cigar name', options)
 
 st.info('Or search by profile notes')
-profile = st.text_input('Enter profile keyword:', '')
+profile = st.multiselect('Enter profile keywords:', options2)
 
 test = st.button('Search for recommended cigars')
 
@@ -32,10 +32,12 @@ if test:
 		for i in range(0,len(distances.flatten())):
 			if i == 0:
 				st.text('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
+				st.text(' Profile notes: {}'.format(df_desc2['New'][query_index]))
 				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
 				st.markdown(html_string1, unsafe_allow_html=True)
 			else:
 				st.text('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
+				st.text(' Profile notes: {}'.format(df_desc2['New'][i]))
 				html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[indices.flatten()[i]].replace("'",""),round(distances.flatten()[i],4))
 				st.markdown(html_string, unsafe_allow_html=True)
 		st.success('Finished')
