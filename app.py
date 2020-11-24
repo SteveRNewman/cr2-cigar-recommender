@@ -21,6 +21,7 @@ st.info('Or search by profile notes')
 profile = st.multiselect('Enter profile keywords:', options2)
 
 test = st.button('Search for recommended cigars')
+st.info('Select "Search profiles" multiple times for 10 new matches')
 test2 = st.button('Search profiles')
 
 
