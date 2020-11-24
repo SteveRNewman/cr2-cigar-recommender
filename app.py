@@ -32,7 +32,7 @@ if test:
 		for i in range(0,len(distances.flatten())):
 			if i == 0:
 				st.text('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
-				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[query_index])
+				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
 				st.markdown(html_string1, unsafe_allow_html=True)
 			else:
 				st.text('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
