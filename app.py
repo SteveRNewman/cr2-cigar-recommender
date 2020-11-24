@@ -21,6 +21,9 @@ st.info('Or search by profile notes')
 profile = st.multiselect('Enter profile keywords:', options2)
 
 test = st.button('Search for recommended cigars')
+test2 = st.button('Search profiles')
+
+
 
 #html_string = "<a href='http://google.com'>google</a>"
 #run recommender
@@ -40,6 +43,17 @@ if test:
 				st.text(' Profile notes: {}'.format(df_desc2['New'][i]))
 				html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[indices.flatten()[i]].replace("'",""),round(distances.flatten()[i],4))
 				st.markdown(html_string, unsafe_allow_html=True)
+		st.success('Finished')
+
+	else:
+		st.error('Please enter a valid cigar')
+
+if test2:
+	if profile:
+		st.success('Searching for similar cigars')
+		targets = profile
+		df_desc2['pro'] = pd.DataFrame(df_desc2.New.apply(lambda sentence: all(word in sentence for word in targets)))
+		st.dataframe(df_desc2['New'][df_desc2['pro']==True].sample(n=10))
 		st.success('Finished')
 
 	else:
