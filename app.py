@@ -38,10 +38,13 @@ else:
 	test = st.button('Search cigars')
 	test2 = None
 
-
+# else:
+# 	st.error('Please enter a valid cigar')
 
 if test:
-	if cigar_id:
+	if cigar_id == (' '):
+		st.error('Please enter a valid cigar')
+	else:
 		st.success('Distance scores closer to zero are better matches because they have more similar features.')
 		query_index = model_app.get_key(val=cigar_id)
 		distances, indices = model_app.knn_search.kneighbors(model_app.df_final_v_3.iloc[query_index,:].values.reshape(1,-1), n_neighbors=11)
@@ -58,8 +61,8 @@ if test:
 				st.markdown(html_string, unsafe_allow_html=True)
 		st.success('Finished')
 
-	else:
-		st.error('Please enter a valid cigar')
+	# else:
+	# 	st.error('Please enter a valid cigar')
 
 if test2:
 	if profile:
