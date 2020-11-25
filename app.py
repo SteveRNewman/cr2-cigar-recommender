@@ -8,7 +8,7 @@ df_desc2 = pd.read_pickle('df_desc2.pkl')
 options5 = list(model_app.df_final_v_3.index)
 options5.append(' ')
 options = options5
-options2 = list(df_desc2.columns[:-1])
+options2 = list(df_desc2.columns[:-2])
 
 st.title("Cigar Recommender")
 
