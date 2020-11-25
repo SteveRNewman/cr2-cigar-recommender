@@ -15,7 +15,11 @@ st.image(img, caption='“Smoking cigars is like falling in love. First, you are
 
 test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles','About'])
 if test3 == ('About'):
-	st.header('Info about the model - working on it')
+	st.header('Info about the model - working on it. Will have features by type in sidebar with buttons to expand and displayed as graphs in the main section.')
+	wrapper = st.sidebar.button('View Wrapper Types')
+	filler = st.sidebar.button('View Filler Types')
+	strength = st.sidebar.button('View Strength Types')
+	st.sidebar.write('etc.')
 	test = None
 	test2 = None
 elif test3 == ('Search profiles'):
@@ -34,7 +38,7 @@ else:
 
 if test:
 	if cigar_id:
-		st.success('Searching for similar cigars')
+		st.success('Distance scores closer to zero are better matches because they have more similar features.')
 		query_index = model_app.get_key(val=cigar_id)
 		distances, indices = model_app.knn_search.kneighbors(model_app.df_final_v_3.iloc[query_index,:].values.reshape(1,-1), n_neighbors=11)
 		for i in range(0,len(distances.flatten())):
