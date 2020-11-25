@@ -13,12 +13,17 @@ st.title("Cigar Recommender")
 img = Image.open('figures/cigar.jpeg')
 st.image(img, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” - Winston Churchill')
 
-test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles'])
-if test3 == ('Search profiles'):
-	st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for more new matches')
-	profile = st.multiselect('Enter profile keywords:', options2)
-	test2 = st.button('Search cigars by profile')
+test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles','About'])
+if test3 == ('About'):
+	st.header('Info about the model - working on it')
 	test = None
+	test2 = None
+elif test3 == ('Search profiles'):
+
+		st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for more new matches')
+		profile = st.multiselect('Enter profile keywords:', options2)
+		test2 = st.button('Search cigars by profile')
+		test = None
 else:
 	st.header('Input your favorite cigar. 1876 Reserve is just a place holder, no need to delete it. Click in the box and your input will autofill.')
 	cigar_id = st.selectbox('Start typing cigar name', options)
