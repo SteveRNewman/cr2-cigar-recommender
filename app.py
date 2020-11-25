@@ -13,22 +13,18 @@ st.title("Cigar Recommender")
 img = Image.open('figures/cigar.jpeg')
 st.image(img, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” - Winston Churchill')
 
-st.header('Input your favorite cigar.')
-#st.subheader('You can search any cigars listed here, \n https://www.cigarsinternational.com/shop/big-list-of-cigars-brands/1803000/ ')
-cigar_id = st.selectbox('Start typing cigar name', options)
-
-st.info('Or search by profile notes')
-profile = st.multiselect('Enter profile keywords:', options2)
 test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles'])
-
 if test3 == ('Search profiles'):
-	st.info('Select any number of profile keywords above and select "Search cigar by profile" multiple times for more new matches')
+	st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for more new matches')
+	profile = st.multiselect('Enter profile keywords:', options2)
 	test2 = st.button('Search cigars by profile')
 	test = None
 else:
-
+	st.header('Input your favorite cigar. 1876 Reserve is just a place holder. Click in the box and your input will autofill.')
+	cigar_id = st.selectbox('Start typing cigar name', options)
 	test = st.button('Search cigars')
 	test2 = None
+
 
 
 if test:
@@ -38,13 +34,13 @@ if test:
 		distances, indices = model_app.knn_search.kneighbors(model_app.df_final_v_3.iloc[query_index,:].values.reshape(1,-1), n_neighbors=11)
 		for i in range(0,len(distances.flatten())):
 			if i == 0:
-				st.text('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
-				st.text(' Profile notes: {}'.format(df_desc2['New'][query_index]))
+				st.write('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
+				st.write(' Profile notes: {}'.format(df_desc2['New'][query_index]))
 				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
 				st.markdown(html_string1, unsafe_allow_html=True)
 			else:
-				st.text('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
-				st.text(' Profile notes: {}'.format(df_desc2['New'][i]))
+				st.write('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
+				st.write(' Profile notes: {}'.format(df_desc2['New'][i]))
 				html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[indices.flatten()[i]].replace("'",""),round(distances.flatten()[i],4))
 				st.markdown(html_string, unsafe_allow_html=True)
 		st.success('Finished')
