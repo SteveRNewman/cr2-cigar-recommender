@@ -22,6 +22,8 @@ if test3 == ('About'):
 	st.sidebar.write('etc.')
 	test = None
 	test2 = None
+	html_string1 = '<a href = "mailto: stevernewman@gmail.com">Contact Steve</a>'
+	st.markdown(html_string1, unsafe_allow_html=True)
 elif test3 == ('Search profiles'):
 
 		st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for new matches.')
