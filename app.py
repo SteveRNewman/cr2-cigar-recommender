@@ -30,12 +30,12 @@ if test3 == ('Enter Favorite Cigar Profile'):
 
 		st.info('Select any number of profile keywords. Then select "Search cigar by profile" for new matches.')
 		profile = st.multiselect('Select only one strength option (capitalized) for best results:', options2)
-		test2 = st.button('Search cigars by profile')
+		test2 = st.button('Search Cigars')
 		test = None
 else:
 	st.header('Input your favorite cigar and autocomplete will provide selection.')
 	cigar_id = st.selectbox('Start typing cigar name', options, index=1616)
-	test = st.button('Search cigars')
+	test = st.button('Search Cigars')
 	test2 = None
 
 # else:
@@ -66,7 +66,7 @@ if test:
 
 if test2:
 	if profile:
-		st.success('Select "Search cigars by profile" again for new options if more than 10 matches are available.')
+		st.success('Select "Search Cigars" again for new options if more than 10 matches are available.')
 		targets = profile
 		df_desc2['pro'] = pd.DataFrame(df_desc2.New.apply(lambda sentence: all(word in sentence for word in targets)))
 		df = pd.DataFrame(df_desc2['New'][df_desc2['pro']==True])
