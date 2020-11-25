@@ -28,7 +28,7 @@ test3 = st.radio('Choose how to get cigar recommendations:',['Enter Favorite Cig
 # 	st.markdown(html_string1, unsafe_allow_html=True)
 if test3 == ('Enter Favorite Cigar Profile'):
 
-		st.info('Select any number of profile keywords. Then select "Search cigar by profile" for new matches.')
+		st.info('Select any number of profile keywords. Then select "Search Cigars" for new matches.')
 		profile = st.multiselect('Select only one strength option (capitalized) for best results:', options2)
 		test2 = st.button('Search Cigars')
 		test = None
