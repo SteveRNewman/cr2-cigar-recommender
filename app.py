@@ -28,7 +28,7 @@ if test3 == ('About'):
 	st.markdown(html_string1, unsafe_allow_html=True)
 elif test3 == ('Search profiles'):
 
-		st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for new matches.')
+		st.info('Select any number of profile keywords. Then select "Search cigar by profile" for new matches.')
 		profile = st.multiselect('Enter profile keywords:', options2)
 		test2 = st.button('Search cigars by profile')
 		test = None
@@ -63,7 +63,7 @@ if test:
 
 if test2:
 	if profile:
-		st.success('Searching for similar cigars')
+		st.success('Select "Search cigars by profile" again for new options if more than 10 matches are available.')
 		targets = profile
 		df_desc2['pro'] = pd.DataFrame(df_desc2.New.apply(lambda sentence: all(word in sentence for word in targets)))
 		df = pd.DataFrame(df_desc2['New'][df_desc2['pro']==True])
