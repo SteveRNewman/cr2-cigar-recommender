@@ -48,12 +48,12 @@ if test:
 		for i in range(0,len(distances.flatten())):
 			if i == 0:
 				st.write('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
-				st.write(' Profile notes: {}'.format(df_desc2['New'][query_index]))
+				st.write(' Profile notes: {}'.format(df_desc2['New'][query_index][:-1]))
 				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
 				st.markdown(html_string1, unsafe_allow_html=True)
 			else:
 				st.write('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
-				st.write(' Profile notes: {}'.format(df_desc2['New'][i]))
+				st.write(' Profile notes: {}'.format(df_desc2['New'][i][:-1]))
 				html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(model_app.df_final_v_3.index[indices.flatten()[i]].replace("'",""),round(distances.flatten()[i],4))
 				st.markdown(html_string, unsafe_allow_html=True)
 		st.success('Finished')
