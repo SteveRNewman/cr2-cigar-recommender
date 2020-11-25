@@ -24,7 +24,7 @@ if test3 == ('About'):
 	test2 = None
 elif test3 == ('Search profiles'):
 
-		st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for more new matches')
+		st.info('Select any number of profile keywords. Then select "Search cigar by profile" multiple times for new matches.')
 		profile = st.multiselect('Enter profile keywords:', options2)
 		test2 = st.button('Search cigars by profile')
 		test = None
