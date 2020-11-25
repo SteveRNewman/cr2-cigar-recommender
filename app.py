@@ -5,7 +5,9 @@ import model_app
 import pandas as pd
 
 df_desc2 = pd.read_pickle('df_desc2.pkl')
-options = list(model_app.df_final_v_3.index)
+options5 = list(model_app.df_final_v_3.index)
+options5.append(' ')
+options = options5
 options2 = list(df_desc2.columns[:-1])
 
 st.title("Cigar Recommender")
@@ -31,8 +33,8 @@ elif test3 == ('Search profiles'):
 		test2 = st.button('Search cigars by profile')
 		test = None
 else:
-	st.header('Input your favorite cigar. 1876 Reserve is just a place holder, no need to delete it. Click in the box and your input will autofill.')
-	cigar_id = st.selectbox('Start typing cigar name', options)
+	st.header('Input your favorite cigar and autocomplete will provide selection.')
+	cigar_id = st.selectbox('Start typing cigar name', options, index=1616)
 	test = st.button('Search cigars')
 	test2 = None
 
