@@ -19,15 +19,18 @@ cigar_id = st.selectbox('Start typing cigar name', options)
 
 st.info('Or search by profile notes')
 profile = st.multiselect('Enter profile keywords:', options2)
+test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles'])
 
-test = st.button('Search for recommended cigars')
-st.info('Select "Search profiles" multiple times for 10 new matches')
-test2 = st.button('Search profiles')
+if test3 == ('Search profiles'):
+	st.info('Select "Search cigar by profile" multiple times for more new matches')
+	test2 = st.button('Search cigars by profile')
+	test = None
+else:
+
+	test = st.button('Search cigars')
+	test2 = None
 
 
-
-#html_string = "<a href='http://google.com'>google</a>"
-#run recommender
 if test:
 	if cigar_id:
 		st.success('Searching for similar cigars')
@@ -54,8 +57,11 @@ if test2:
 		st.success('Searching for similar cigars')
 		targets = profile
 		df_desc2['pro'] = pd.DataFrame(df_desc2.New.apply(lambda sentence: all(word in sentence for word in targets)))
-		st.dataframe(df_desc2['New'][df_desc2['pro']==True].sample(n=10))
-		st.success('Finished')
-
-	else:
-		st.error('Please enter a valid cigar')
+		df = pd.DataFrame(df_desc2['New'][df_desc2['pro']==True])
+		if len(df)>10:
+			df=df.sample(n=10)
+		for i in range(len(df)):
+			st.write('{}: {}'.format(i+1,df.index[i]))
+			st.write('---Profile notes: {}'.format(df["New"][i][:-1]))
+			html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(df.index[i].replace("'",""))
+			st.markdown(html_string, unsafe_allow_html=True)
