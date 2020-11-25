@@ -15,18 +15,18 @@ st.title("Cigar Recommender")
 img = Image.open('figures/cigar.jpeg')
 st.image(img, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” - Winston Churchill')
 
-test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles','About'])
-if test3 == ('About'):
-	st.header('Info about the model - working on it. Will have features by type in sidebar with buttons to expand and displayed as graphs in the main section.')
-	wrapper = st.sidebar.button('View Wrapper Types')
-	filler = st.sidebar.button('View Filler Types')
-	strength = st.sidebar.button('View Strength Types')
-	st.sidebar.write('etc.')
-	test = None
-	test2 = None
-	html_string1 = "<a target='_blank' href = 'mailto: stevernewman@gmail.com'>Contact Steve</a>"
-	st.markdown(html_string1, unsafe_allow_html=True)
-elif test3 == ('Search profiles'):
+test3 = st.radio('Choose how to get cigar recommendations:',['Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile'])
+# if test3 == ('About'):
+# 	st.header('Info about the model - working on it. Will have features by type in sidebar with buttons to expand and displayed as graphs in the main section.')
+# 	wrapper = st.sidebar.button('View Wrapper Types')
+# 	filler = st.sidebar.button('View Filler Types')
+# 	strength = st.sidebar.button('View Strength Types')
+# 	st.sidebar.write('etc.')
+# 	test = None
+# 	test2 = None
+# 	html_string1 = "<a target='_blank' href = 'mailto: stevernewman@gmail.com'>Contact Steve</a>"
+# 	st.markdown(html_string1, unsafe_allow_html=True)
+if test3 == ('Enter Favorite Cigar Profile'):
 
 		st.info('Select any number of profile keywords. Then select "Search cigar by profile" for new matches.')
 		profile = st.multiselect('Select only one strength option (capitalized) for best results:', options2)
@@ -77,3 +77,4 @@ if test2:
 			st.write('---Profile notes: {}'.format(df["New"][i][:-1]))
 			html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(df.index[i].replace("'",""))
 			st.markdown(html_string, unsafe_allow_html=True)
+#test4 = st.button('About')
