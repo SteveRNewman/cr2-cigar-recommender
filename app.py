@@ -22,7 +22,7 @@ if test3 == ('About'):
 	st.sidebar.write('etc.')
 	test = None
 	test2 = None
-	html_string1 = '<a href = "mailto: stevernewman@gmail.com">Contact Steve</a>'
+	html_string1 = "<a target='_blank' href = 'mailto: stevernewman@gmail.com'>Contact Steve</a>"
 	st.markdown(html_string1, unsafe_allow_html=True)
 elif test3 == ('Search profiles'):
 
