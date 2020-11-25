@@ -22,7 +22,7 @@ profile = st.multiselect('Enter profile keywords:', options2)
 test3 = st.radio('Set Option',['Search for recommended cigars', 'Search profiles'])
 
 if test3 == ('Search profiles'):
-	st.info('Select "Search cigar by profile" multiple times for more new matches')
+	st.info('Select any number of profile keywords above and select "Search cigar by profile" multiple times for more new matches')
 	test2 = st.button('Search cigars by profile')
 	test = None
 else:
