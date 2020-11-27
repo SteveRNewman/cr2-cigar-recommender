@@ -14,7 +14,7 @@ knn_search = NearestNeighbors(metric='wminkowski', p=2, metric_params={'w': [1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 2., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
-       1., 1, 1, 1, 1, 1, 1., 1, 1, 1, 1, 2, 1, 1]})
+       1., 1, 1, 1, 1, 1, 1., 1, 1, 1, 1, 2, 1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]})
 
 knn_search.fit(df_final_v_3)
 
@@ -23,7 +23,7 @@ knn_search.fit(df_final_v_3)
 
 # def auto(value):
 #     show.value=value.new
-    
+
 options = list(df_final_v_3.index)
 # autofill = af.autoFill(options,callback=open)
 
@@ -31,7 +31,7 @@ options = list(df_final_v_3.index)
 
 # display(HBox([autofill,show]))
 
-def get_key(val): 
-    for key, value in dict(enumerate(options)).items(): 
-         if val == value: 
-            return key 
+def get_key(val):
+    for key, value in dict(enumerate(options)).items():
+         if val == value:
+            return key
