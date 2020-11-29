@@ -80,6 +80,6 @@ if test2:
 html_stringp = "<a target='_blank' href='https://chefnewman.github.io/'>About</a>"
 # st.markdown(html_stringp, unsafe_allow_html=True)
 st.markdown(
-    """<a style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
+    """<a target='_blank;' style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
     """,
     unsafe_allow_html=True)
