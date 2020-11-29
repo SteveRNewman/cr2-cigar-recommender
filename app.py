@@ -77,4 +77,5 @@ if test2:
 			st.write('---Profile notes: {}'.format(df["New"][i][:-1]))
 			html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(df.index[i].replace("'",""))
 			st.markdown(html_string, unsafe_allow_html=True)
-#test4 = st.button('About')
+html_stringp = "<a target='_blank' href='https://chefnewman.github.io/>About/a>"
+st.markdown(html_stringp, unsafe_allow_html=True)
