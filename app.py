@@ -15,9 +15,9 @@ st.markdown(
     unsafe_allow_html=True)
 col1, col2, col3 = st.beta_columns([1,1,1])
 img = Image.open('figures/cigar.jpeg')
-col2.image(img, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” - Winston Churchill',
-use_column_width=True)
-
+img2 = Image.open('figures/img2.jpeg')
+col2.image(img, use_column_width=True)
+st.image(img2, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” Winston Churchill')
 test3 = st.radio('Choose how to get cigar recommendations:',['Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile'])
 # if test3 == ('About'):
 # 	st.header('Info about the model - working on it. Will have features by type in sidebar with buttons to expand and displayed as graphs in the main section.')
