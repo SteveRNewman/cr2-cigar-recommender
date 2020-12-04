@@ -9,11 +9,14 @@ options5 = list(model_app.df_final_v_3.index)
 options5.append(' ')
 options = options5
 options2 = list(df_desc2.columns[:-2])
-
-st.title("Cigar Recommender")
-
+st.markdown(
+    """<h1 style='display: block; text-align: center;' >Cigar Recommender</h1>
+    """,
+    unsafe_allow_html=True)
+col1, col2, col3 = st.beta_columns([1,1,1])
 img = Image.open('figures/cigar.jpeg')
-st.image(img, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” - Winston Churchill')
+col2.image(img, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” - Winston Churchill',
+use_column_width=True)
 
 test3 = st.radio('Choose how to get cigar recommendations:',['Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile'])
 # if test3 == ('About'):
