@@ -8,7 +8,7 @@ df_desc2 = pd.read_pickle('df_desc2.pkl')
 options5 = list(model_app.df_final_v_3.index)
 options5.append(' ')
 options = options5
-options2 = list(df_desc2.columns[:-2])
+options2 = list(df_desc2.columns[:-1])
 st.markdown(
     """<h1 style='display: block; text-align: center;' >Cigar Recommender</h1>
     """,
@@ -32,7 +32,7 @@ test3 = st.radio('Choose how to get cigar recommendations:',['Enter Favorite Cig
 if test3 == ('Enter Favorite Cigar Profile'):
 
 		st.info('Select any number of profile keywords. Then select "Search Cigars" for new matches.')
-		profile = st.multiselect('Select only one strength option (capitalized) for best results:', options2)
+		profile = st.multiselect('Select only one strength option (all capitalized) for best results:', options2)
 		test2 = st.button('Search Cigars')
 		test = None
 else:
