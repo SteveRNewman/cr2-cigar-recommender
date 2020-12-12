@@ -81,8 +81,8 @@ if test2:
 			st.write('---Profile notes: {}'.format(df["New"][i][:-1]))
 			html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(df.index[i].replace("'",""))
 			st.markdown(html_string, unsafe_allow_html=True)
-streamlit.components.v1.iframe(http://cigars-rec.com/discuss.html, width=698, height=400, scrolling=auto)
-streamlit.components.v1.iframe(http://cigars-rec.com/disqus.html, width=698, height=400, scrolling=auto)
+st.components.v1.iframe("http://cigars-rec.com/discuss.html", width=698, height=400, scrolling=True)
+st.components.v1.iframe("http://cigars-rec.com/disqus.html", width=698, height=400, scrolling=True)
 html_stringp = "<a target='_blank' href='https://chefnewman.github.io/'>About</a>"
 st.markdown(
     """<a target='_blank;' style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
