@@ -82,9 +82,9 @@ if test2:
 			html_string = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>more info</a>".format(df.index[i].replace("'",""))
 			st.markdown(html_string, unsafe_allow_html=True)
 fb = st.checkbox("Non Facebook Comments", value=False)
-st.components.v1.iframe("https://s3.us-east-2.amazonaws.com/cigars-rec.com/discuss.html", width=698, height=400, scrolling=True)
+st.components.v1.iframe("https://s3.us-east-2.amazonaws.com/cigars-rec.com/discuss.html", height=400, scrolling=True)
 if fb:
-    st.components.v1.iframe("https://s3.us-east-2.amazonaws.com/cigars-rec.com/disqus.html", width=698, height=400, scrolling=True)
+    st.components.v1.iframe("https://s3.us-east-2.amazonaws.com/cigars-rec.com/disqus.html",height=400, scrolling=True)
 html_stringp = "<a target='_blank' href='https://chefnewman.github.io/'>About</a>"
 st.markdown(
     """<a target='_blank;' style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
