@@ -41,7 +41,7 @@ img2 = Image.open('figures/img2.jpeg')
 col2.image(img, use_column_width=True)
 st.image(img2, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” Winston Churchill')
 
-home_btn = st.selectbox('Choose how to get cigar recommendations:',['Instructions','Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile', 'Match Cigar to Whisky', 'Match Whisky to Cigar',' '], index=5)
+home_btn = st.radio('',['Instructions','Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile','Match Cigar to Whisky', 'Match Whisky to Cigar'],index=1)
 
 if home_btn == ('Instructions'):
 
