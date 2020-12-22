@@ -5,7 +5,7 @@ import model_app
 import pandas as pd
 import random 
 
-st.set_page_config(page_title="Cigars-Rec", page_icon="💨" , layout="centered")
+st.set_page_config(page_title="Cigars-Rec", page_icon="💨" , layout='centered')
 
 whisky_tbl = pd.read_pickle('w_join2.pkl')
 #whisky_tbl = pd.read_pickle('w_join2.pkl')
@@ -46,10 +46,10 @@ st.markdown(
     """,
     unsafe_allow_html=True)
 
-col1, col2, col3 = st.beta_columns([1,1,1])
+#col1, col2, col3 = st.beta_columns([1,1,1])
 img = Image.open('figures/cigar.jpeg')
 img2 = Image.open('figures/img2.jpeg')
-col2.image(img, use_column_width=True)
+st.image(img, use_column_width=True)
 st.image(img2, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” Winston Churchill')
 
 home_btn = st.radio('',['Instructions','Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile','Match Cigar to Whisky', 'Match Whisky to Cigar'],index=1)
@@ -234,7 +234,7 @@ if home_btn == ('Match Whisky to Cigar'):
 				query_index = get_key2(val=whisky_id)
 				st.write('Whisky to match to cigar: {}'.format(whisky_tbl.index[query_index]))
 				st.write(' Profile notes: {}'.format(whisky_tbl['new'][query_index][:-1]))
-				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+distiller.com&rlz'>Whisky Info`</a>".format(whisky_tbl.index[query_index].replace("'",""))
+				html_string1 = "<a target='_blank' href='http://google.com/search?q={}+distiller.com&rlz'>Whisky Info</a>".format(whisky_tbl.index[query_index].replace("'",""))
 				st.markdown(html_string1, unsafe_allow_html=True)
 				cig_list= wky_to_cgr['w_targ_l'][query_index]
 				if cig_list == ['']:
