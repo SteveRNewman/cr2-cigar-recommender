@@ -84,9 +84,9 @@ if home_btn == ('Enter Favorite Cigar Name'):
 				if i == 0:
 					st.write('Top Cigar Recommendations for: {}'.format(model_app.df_final_v_3.index[query_index]))
 					st.write(' Profile notes: {}'.format(cigar_tbl['New'][query_index][:-1]))
-					html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'ga(‘send’,’event’,’category’,’click’,’opt_label’, 0)>Cigar Info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
+					html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>Cigar Info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
 					st.markdown(html_string1, unsafe_allow_html=True)
-				else:
+				else:								
 					p2 = model_app.df_final_v_3.index[indices.flatten()[i]]
 					st.write('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
 					st.write(' Profile notes: {}'.format(cigar_tbl['New'][p2][:-1]))
