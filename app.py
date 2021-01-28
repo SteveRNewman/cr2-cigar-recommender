@@ -45,12 +45,11 @@ st.markdown(
     """<h1 style='display: block; text-align: center;' >Cigar Recommender</h1>
     """,
     unsafe_allow_html=True)
-
-col1, col2, col3 = st.beta_columns([1,1,1])
-img = Image.open('figures/cigar.jpeg')
+img = Image.open('figures/cigar.png')
 img2 = Image.open('figures/img2.jpeg')
-col2.image(img, use_column_width=True)
-st.image(img2, caption='“Smoking cigars is like falling in love. First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.” Winston Churchill')
+col1, col2, col3 = st.beta_columns([1,1,1])
+col2.image(img, width= 200)
+st.image( img2,  caption='“Smoking cigars is like falling in love. \n First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.”\n Winston Churchill')
 
 home_btn = st.radio('',['Instructions','Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile','Match Cigar to Whisky', 'Match Whisky to Cigar'],index=1)
 
@@ -86,7 +85,7 @@ if home_btn == ('Enter Favorite Cigar Name'):
 					st.write(' Profile notes: {}'.format(cigar_tbl['New'][query_index][:-1]))
 					html_string1 = "<a target='_blank' href='http://google.com/search?q={}+cigar&rlz'>Cigar Info</a>".format(model_app.df_final_v_3.index[query_index].replace("'",""))
 					st.markdown(html_string1, unsafe_allow_html=True)
-				else:								
+				else:
 					p2 = model_app.df_final_v_3.index[indices.flatten()[i]]
 					st.write('{}: {} with a Distance Score of: {}'.format(i, model_app.df_final_v_3.index[indices.flatten()[i]],round(distances.flatten()[i],4)))
 					st.write(' Profile notes: {}'.format(cigar_tbl['New'][p2][:-1]))
