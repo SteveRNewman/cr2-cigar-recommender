@@ -269,7 +269,7 @@ if home_btn == ('Match Whisky to Cigar'):
 				srch_profile_btn = None
 				srch_cigar_btn = None
 
-html_stringp = "<a target='_blank' href='https://chefnewman.github.io/'>About</a>"
+html_stringp = "<a target='_blank' href='https://stevernewman.github.io/'>About</a>"
 st.markdown(
     """<a target='_blank;' style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
     """,
