@@ -48,7 +48,7 @@ st.markdown(
 img = Image.open('figures/cigar.png')
 img2 = Image.open('figures/img2.jpeg')
 col1, col2, col3 = st.beta_columns([1,1,1])
-col2.image(img, width= 200, use_column_width=auto)
+col2.image(img, width= 200, use_column_width=Auto)
 st.image( img2,  caption='“Smoking cigars is like falling in love. \n First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.”\n Winston Churchill')
 
 home_btn = st.radio('',['Instructions','Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile','Match Cigar to Whisky', 'Match Whisky to Cigar'],index=1)
