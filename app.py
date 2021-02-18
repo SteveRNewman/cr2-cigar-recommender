@@ -48,7 +48,7 @@ st.markdown(
 img = Image.open('figures/cigar.png')
 img2 = Image.open('figures/img2.jpeg')
 col1, col2, col3 = st.beta_columns([1,1,1])
-col2.image(img, width= 200)
+col2.image(img, width= 200, use_column_width=auto)
 st.image( img2,  caption='“Smoking cigars is like falling in love. \n First, you are attracted by its shape; you stay for its flavor, and you must always remember never, never to let the flame go out.”\n Winston Churchill')
 
 home_btn = st.radio('',['Instructions','Enter Favorite Cigar Name', 'Enter Favorite Cigar Profile','Match Cigar to Whisky', 'Match Whisky to Cigar'],index=1)
@@ -271,7 +271,7 @@ if home_btn == ('Match Whisky to Cigar'):
 
 html_stringp = "<a target='_blank' href='https://stevernewman.github.io/'>About</a>"
 st.markdown(
-    """<a target='_blank;' style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
+    """<a target='_blank;' style='display: block; text-align: center;' href="https://stevernewman.github.io/">About</a>
     """,
     unsafe_allow_html=True)
 fb = st.checkbox("Comments", value=False)
