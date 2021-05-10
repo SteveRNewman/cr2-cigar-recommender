@@ -44,7 +44,7 @@ st.markdown(
     """<h1 style='display: block; text-align: center;' >Cigar Recommender</h1>
     """,
     unsafe_allow_html=True)
-img = Image.open('figures/cigar.jpeg')
+img = Image.open('figures/cigar.png')
 img2 = Image.open('figures/img2.jpeg')
 col1, col2, col3 = st.beta_columns([1,1,1])
 col2.image(img, width= 200)
