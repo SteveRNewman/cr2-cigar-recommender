@@ -270,7 +270,7 @@ if home_btn == ('Match Whisky to Cigar'):
 
 html_stringp = "<a target='_blank' href='https://linktr.ee/stevernewman'>About</a>"
 st.markdown(
-    """<a target='_blank;' style='display: block; text-align: center;' href="https://chefnewman.github.io/">About</a>
+    """<a target='_blank;' style='display: block; text-align: center;' href="hhttps://linktr.ee/stevernewman">About</a>
     """,
     unsafe_allow_html=True)
 fb = st.checkbox("Comments", value=False)
